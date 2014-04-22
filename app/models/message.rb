@@ -1,4 +1,5 @@
 class Message < ActiveRecord::Base
+  belongs_to :addressbook
   before_create :send_sms
 
 private

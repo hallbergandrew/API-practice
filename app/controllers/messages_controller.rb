@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save
       flash[:notice] = "Message sent"
-      redirect_to messages_path
+      redirect_to addressbooks_path
     else
       render 'new'
     end
@@ -25,7 +25,7 @@ class MessagesController < ApplicationController
 private
 
   def message_params
-    params.require(:message).permit(:to, :from, :body)
+    params.require(:message).permit(:to, :from, :body, :addressbook_id)
   end
 end
 

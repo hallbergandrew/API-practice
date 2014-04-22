@@ -6,7 +6,10 @@ class AddressbooksController < ApplicationController
 
   def show
     @addressbook = Addressbook.find(params[:id])
+    @message = Message.new
+    @messages = Message.all
   end
+
 
   def new
     @addressbook = Addressbook.new
@@ -27,6 +30,7 @@ private
   def addressbook_params
     params.require(:addressbook).permit(:address, :city, :state, :zipcode, :firstname, :lastname, :number, :message_id, :id)
   end
+
 end
 
 

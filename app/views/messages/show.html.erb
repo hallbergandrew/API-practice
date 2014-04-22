@@ -1,7 +1,7 @@
-<h1> Show </ht>
+<h1> Show </h1>
 
-  <%= @message.to %>
-  <%= @message.from %>
-  <%= @message.body %>
+  <p>To: <%= @message.to %></p>
+  <p>From: <%= @message.from %></p>
+  <p>Message: <%= @message.body %></p>
 
-<%= link_to "Back", messages_path %>
+<%= link_to "Back", :back %>

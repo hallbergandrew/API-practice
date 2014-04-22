@@ -7,7 +7,40 @@
     <li>Zipcode: <%=@addressbook.zipcode%></li>
   </ul>
 
+  <p> Send message to this user: </p>
 
-<%= link_to "Send message to this user", new_message_path %><br>
+
+  <%= form_for @message do |f| %>
+      <div class="form group">
+        <%= f.label :body %>
+        <%= f.text_field :body %>
+      </div>
+        <div class="form-group">
+     <%= f.hidden_field :to, :value => @addressbook.number %>
+        </div>
+        <div class="form-group">
+     <%= f.hidden_field :from, :value => "3605249359" %>
+        </div>
+         <div class="form-group">
+     <%= f.hidden_field :addressbook_id, :value => @addressbook.id %>
+        </div>
+      <%= f.submit "Send message" %>
+
+    <% end %><br>
+
+   <p> All past messages sent to <%= @addressbook.firstname %> </p>
+   <ul>
+           <% @addressbook.messages.each do |message|%>
+           <li><%= link_to message.body, message_path(message) %></li>
+           <% end %>
+  </ul>
+
 
 <%= link_to "Back", addressbooks_path %>
+
+
+
+
+
+
+
