@@ -2,6 +2,7 @@ class AddressbooksController < ApplicationController
 
   def index
     @addressbooks = Addressbook.all
+    @message = Message.new
   end
 
   def show
