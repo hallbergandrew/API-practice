@@ -1,0 +1,10 @@
+<h1> Addressbook all </h1>
+<ul>
+<% @addressbooks.each do |person| %>
+  <%= link_to "#{person.lastname}, #{person.firstname}", addressbook_path(person) %><br>
+
+  <% end %>
+</ul>
+<%= link_to "Create new contact", new_addressbook_path %><br>
+
+<%= link_to "Send text message", new_message_path %>

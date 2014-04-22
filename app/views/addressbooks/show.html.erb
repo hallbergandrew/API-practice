@@ -1,0 +1,13 @@
+<h1> <%= @addressbook.firstname + ", " + @addressbook.lastname %> </h1>
+  <ul>
+    <li>Number: <%=@addressbook.number%></li>
+    <li>Address: <%=@addressbook.address%></li>
+    <li>City: <%=@addressbook.city%></li>
+    <li>State: <%=@addressbook.state%></li>
+    <li>Zipcode: <%=@addressbook.zipcode%></li>
+  </ul>
+
+
+<%= link_to "Send message to this user", new_message_path %><br>
+
+<%= link_to "Back", addressbooks_path %>

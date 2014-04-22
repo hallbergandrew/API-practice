@@ -7,13 +7,13 @@ gem 'rails', '4.0.4'
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.2'
+gem 'sass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -25,7 +25,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
+gem 'jquery-turbolinks'
+gem 'therubyracer'
+gem 'paperclip'
 gem 'rest-client'
 
 group :test, :development do
@@ -35,15 +38,21 @@ group :test, :development do
   gem 'pry-debugger'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :test do
-  gem 'better_errors'
+  gem 'shoulda-matchers'
   gem 'vcr'
   gem 'webmock'
 end
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'quiet_assets'
+  gem "letter_opener", :group => :development
 end
 
 # Use ActiveModel has_secure_password
